@@ -1,0 +1,46 @@
+//Utilizar el comando "cp VLAN /etc/network/interfaces"
+
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet manual
+
+auto eth1
+iface eth1 inet manual
+
+auto eth2
+iface eth2 inet manual
+
+auto eth3
+iface eth3 inet manual
+
+auto eth0.20
+iface eth0.20 inet manual
+vlan-raw-device eth0
+
+auto eth1.10
+iface eth1.10 inet manual
+vlan-raw-device eth1
+
+auto eth2.10
+iface eth2.10 inet manual
+vlan-raw-device eth2
+
+auto eth3.20
+iface eth3.20 inet manual
+vlan-raw-device eth3
+
+auto br0
+iface br0 inet manual
+bridge_ports none
+
+auto br0.20
+iface br0.20 inet manual
+bridge_ports eth0.20 eth3.20
+vlan-raw-device br0
+
+auto br0.10
+iface br0.10 inet manual
+bridge_ports eth1.10 eth2.10
+vlan-raw-device br0
