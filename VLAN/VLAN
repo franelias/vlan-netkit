@@ -1,4 +1,3 @@
-//Utilizar el comando "cp VLAN /etc/network/interfaces"
 
 auto lo
 iface lo inet loopback
